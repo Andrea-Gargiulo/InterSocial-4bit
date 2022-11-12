@@ -11,7 +11,9 @@ public class Main {
 		try {
 			while(true) {
 				riga=in.fromFile();
-				System.out.println(riga);
+				String[] risultato=riga.split(",");
+				Utente a=new Utente(risultato[0],risultato[1],risultato[2]);
+				System.out.println(a.getEmail()+a.getPassword()+a.getNickname());
 			}
 		}catch(FileException exception){
 			
