@@ -3,16 +3,23 @@ package file;
 public class Post {
 	private int idpost;
 	private static int numeropost;
-	private int idutente;
+	private String nickname;
 	private String testo[];
 	private Commento commenti[];
 	private int numerorighe;
-	public Post(int idutente) {	
+	public Post(String nickname) {	
 		numerorighe=0;
+		setNickname(nickname);
 		testo=new String[10];
 		commenti=new Commento[10];
 		idpost=numeropost;
 		numeropost++;
+	}
+	public void stampa() {
+		System.out.println(nickname);
+		for(int i=0; i<numerorighe; i++) {
+			System.out.println(testo[i]);
+		}
 	}
 	public void addCommento() {
 		//da fare
@@ -21,10 +28,11 @@ public class Post {
 		testo[numerorighe]=linea;
 		numerorighe++;
 	}
-	public int getIdutente() {
-		return idutente;
+	public String getNickname() {
+		return nickname;
 	}
-	public void setIdutente(int idutente) {
-		this.idutente = idutente;
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
+	
 }

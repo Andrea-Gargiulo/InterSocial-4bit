@@ -1,7 +1,6 @@
 package file;
 
 public class Utente {
-	private static SocialNetwork Instagram;
 	private String nickname;		//login
 	private String email;			//registrazione
 	private String password;		//registrazione-login
@@ -10,6 +9,8 @@ public class Utente {
 	private static int numeroutenti;
 	private int numeroamici;
 	private Utente amici[];
+	private Post listapost[];
+	private int numeropost;
 	public Utente(String email,String password,String nickname) {
 		setEmail(email);
 		setPassword(password);
@@ -18,24 +19,23 @@ public class Utente {
 		numeroutenti++;
 		numeroamici=0;
 		amici=new Utente[100];
+		listapost=new Post[100];
+		numeropost++;
 		}
-	public void setSocialNetwork(SocialNetwork a) {
-		Instagram=a;
-	}
 	public void mandaRichiesta(Utente a) {
 		a.richieste.addRichiesta(this.idutente);
 	}
 	public void visualizzaRichieste() {
 		
 	}
-	public void accettaRichiesta(Utente a) {
+	/*public void accettaRichiesta(Utente a) {
 		addAmico(a.getIdutente());
 		a.addAmico(idutente);
-	}
-	public void addAmico(int id) {
-		amici[numeroamici]=Instagram.cercaPerId(id);
+	}*/
+	/*public void addAmico(int id) {
+		amici[numeroamici]=cercaPerId(id);
 		numeroamici++;
-	}
+	}*/
 	public String getNickname() {
 		return nickname;
 	}
@@ -60,4 +60,14 @@ public class Utente {
 	public void setIdutente(int idutente) {
 		this.idutente = idutente;
 	}
+	public void addPost(Post a) {
+		listapost[numeropost]=a;
+		numeropost++;
+	}
+	public void stampaPost() {
+		for(int i=0; i<numeropost; i++) {
+			listapost[i].stampa();
+		}
+	}
+	
 }	

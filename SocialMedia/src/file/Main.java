@@ -2,23 +2,16 @@ package file;
 import java.io.*;
 public class Main {
 
-	public static void main(String[] args)throws IOException {
+	public static void main(String[] args)throws IOException, FileException {
 		// TODO Auto-generated method stub
 		
-		String riga;
+		SocialNetwork Instagram=new SocialNetwork();
+		Instagram.caricaUtenti();
+		Instagram.stampaUtenti();
+		 Instagram.caricaPost();
+		Instagram.stampaPerNome("nick1");
 		
-		TextFile in=new TextFile("test.txt", 'R');
-		try {
-			while(true) {
-				riga=in.fromFile();
-				String[] risultato=riga.split(",");
-				Utente a=new Utente(risultato[0],risultato[1],risultato[2]);
-				System.out.println(a.getEmail()+a.getPassword()+a.getNickname());
-			}
-		}catch(FileException exception){
-			
-			System.out.println(exception.getMatter());//stampa end of file
-		}
+		
 		
 			
 	}
