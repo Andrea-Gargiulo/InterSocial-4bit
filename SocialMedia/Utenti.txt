@@ -1,0 +1,2 @@
+email1@gmail.com,password1,nick1
+email2@gmail.com,password2,nick2

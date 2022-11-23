@@ -1,0 +1,4 @@
+nick1,3
+righe
+del
+post
